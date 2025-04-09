@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+
+{% block head %}
+
+{% endblock %}
+
+
+
+{% block body %}
+<div class="content">
+    <div id="results_search_bar_surrounding">
+        <form action="{{ url_for('GoToResults') }}" id="results_search_bar" method="GET">
+            <input type="text" placeholder="Search" name="query" value="{{ query }}">
+            <button type="submit" id="results_search_bar_button">
+                <img src="{{ url_for('static', filename='search.png') }}">
+            </button>
+        </form>
+    </div>
+</div>
+
+<div id="results-text">
+    {% if query %}
+        Top results for "{{ query }}":
+    {% endif %}
+</div>
+{% endblock %}

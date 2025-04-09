@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block head %} {% endblock %}
+</head>
+<body>
+    <header id="header">
+        <div class="overlay" id="menuoverlay" onclick="toggleMenu()"></div> 
+        <div class="menu" id="menu">
+            <div class="menu-icon close" onclick="toggleMenu()">✖</div>
+            <nav>
+                <button class="NavButtons"><a href="{{ url_for('home') }}">Home</a></button>
+                <button class="NavButtons"><a href="#">About</a></button>
+                <button class="NavButtons"><a href="#">Contact</a></button>
+                <button class="NavButtons"><a href="#">Feedback</a></button><hr>
+            </nav>
+        </div>
+        <div class="left-section">
+            <div class="menu-icon open" onclick="toggleMenu()">☰</div>
+            <div class="logo">logo</div>
+        </div>
+
+        <div class="right-section">
+            <button class="HeaderButtons" onclick="openSignInMenu()">Sign in</button>
+        </div>
+        <div id="signinoverlay" class="overlay" onclick="closeSignInMenu()"></div>
+        <div class="signinmenu" id="signinMenu">
+            <div class="signinmenu-close" onclick="closeSignInMenu()">✖</div>
+            <nav>
+                <p>Get started today!</p>
+                <button class="signinbutton"><a href="#">Sign in</a></button>
+                <button class="signinbutton"><a href="#">Sign up</a></button>
+            </nav>
+        </div>
+    </header><br><br><hr><br>
+    {% block body%} {% endblock %}
+
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
